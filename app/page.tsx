@@ -15,7 +15,8 @@ export default function IndexPage() {
           </Balancer>
         </h1>
         <p className='max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8'>
-          Plus TRPC, T3 Env, Tailwind, Shadcn UI, and Lucide Icons.
+          Plus TRPC, T3 Env, Tailwind, Shadcn UI, and Lucide Icons. Utilizing
+          the edge runtime.
         </p>
         <div className='space-x-4'>
           <Link href='#' className={cn(buttonVariants({ size: 'lg' }))}>
