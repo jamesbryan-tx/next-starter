@@ -11,11 +11,11 @@ export default function IndexPage() {
       <div className='container flex max-w-[64rem] flex-col items-center gap-4 text-center'>
         <h1 className='font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl'>
           <Balancer>
-            An starter app built using Next.js 13 server components.
+            A starter app built using Next.js 13 server components.
           </Balancer>
         </h1>
         <p className='max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8'>
-          Including TRPC, T3 Env, Tailwind, Shadcn UI, and Lucide Icons.
+          Plus TRPC, T3 Env, Tailwind, Shadcn UI, and Lucide Icons.
         </p>
         <div className='space-x-4'>
           <Link href='#' className={cn(buttonVariants({ size: 'lg' }))}>
