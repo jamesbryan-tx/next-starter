@@ -1,8 +1,8 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: 'Bible App',
-  description: 'Beautifully designed bible app for your daily abiding.',
+  name: 'Next Starter',
+  description: 'Next starter made by Jebulous.',
   mainNav: [
     {
       title: 'Home',
