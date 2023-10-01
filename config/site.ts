@@ -1,8 +1,8 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: 'Next Starter',
-  description: 'Next starter made by Jebulous.',
+  name: 'Project Starter',
+  description: 'Next project starter made by Jebulous.',
   mainNav: [
     {
       title: 'Home',

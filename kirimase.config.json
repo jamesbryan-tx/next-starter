@@ -1,0 +1,16 @@
+{
+  "hasSrc": false,
+  "packages": [
+    "drizzle",
+    "next-auth",
+    "trpc",
+    "shadcn-ui",
+    "resend"
+  ],
+  "preferredPackageManager": "pnpm",
+  "rootPath": "",
+  "driver": "pg",
+  "provider": "supabase",
+  "orm": "drizzle",
+  "auth": "next-auth"
+}

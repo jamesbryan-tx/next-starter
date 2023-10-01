@@ -1,6 +1,8 @@
 'use client';
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { httpBatchLink } from '@trpc/client';
+import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from 'next-themes';
 import React, { useState } from 'react';
 import { Provider as BalancerProvider } from 'react-wrap-balancer';
@@ -14,11 +16,13 @@ interface ProviderProps {
 
 export default function Providers({ children }: ProviderProps) {
   return (
-    <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-      <TRPCProvider>
-        <BalancerProvider>{children}</BalancerProvider>
-      </TRPCProvider>
-    </ThemeProvider>
+    <SessionProvider>
+      <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+        <TRPCProvider>
+          <BalancerProvider>{children}</BalancerProvider>
+        </TRPCProvider>
+      </ThemeProvider>
+    </SessionProvider>
   );
 }
 

@@ -3,13 +3,13 @@ import { Metadata, ServerRuntime } from 'next';
 import { Inter as FontSans } from 'next/font/google';
 import localFont from 'next/font/local';
 
-import { SiteHeader } from '@/components/site-header';
 import { TailwindIndicator } from '@/components/tailwind-indicator';
+import { Toaster } from '@/components/ui/toaster';
 import { siteConfig } from '@/config/site';
 import Providers from '@/lib/providers';
 import { cn } from '@/lib/utils';
 
-export const runtime: ServerRuntime = 'edge';
+// export const runtime: ServerRuntime = 'edge';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -55,10 +55,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           )}
         >
           <Providers>
-            <div className='relative flex min-h-screen flex-col'>
-              <SiteHeader />
-              <div className='flex-1'>{children}</div>
-            </div>
+            {children}
+            <Toaster />
             <TailwindIndicator />
           </Providers>
         </body>
