@@ -1,9 +1,7 @@
-import { router } from "../trpc";
+import { postsRouter } from '@/lib/server/routers/posts';
+import { usersRouter } from '@/lib/server/routers/users';
+import { router } from '@/lib/server/trpc';
 
-import { computersRouter } from "./computers";
-
-export const appRouter = router({
-  computers: computersRouter,
-});
+export const appRouter = router({ posts: postsRouter, users: usersRouter });
 
 export type AppRouter = typeof appRouter;

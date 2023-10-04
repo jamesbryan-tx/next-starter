@@ -8,6 +8,20 @@
       "when": 1696119773203,
       "tag": "0000_stormy_madame_masque",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1696340438206,
+      "tag": "0001_grey_firestar",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1696369224503,
+      "tag": "0002_clean_enchantress",
+      "breakpoints": true
     }
   ]
 }

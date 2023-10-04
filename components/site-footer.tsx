@@ -1,7 +1,7 @@
-import { siteConfig } from '@/config/site';
-import { cn } from '@/lib/utils';
 import { Icons } from '@/components/icons';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { siteConfig } from '@/config/site';
+import { cn } from '@/lib/utils';
 
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
@@ -17,7 +17,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
               rel='noreferrer'
               className='font-medium underline underline-offset-4'
             >
-              shadcn
+              Jebulous
             </a>
             . Hosted on{' '}
             <a
@@ -27,15 +27,6 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
               className='font-medium underline underline-offset-4'
             >
               Vercel
-            </a>
-            . Illustrations by{' '}
-            <a
-              href='https://popsy.co'
-              target='_blank'
-              rel='noreferrer'
-              className='font-medium underline underline-offset-4'
-            >
-              Popsy
             </a>
             . The source code is available on{' '}
             <a

@@ -1,21 +1,43 @@
 import {
+  AlertTriangle,
+  ArrowRight,
+  Calendar,
   ChevronLeft,
+  CreditCard,
+  FileText,
   Laptop,
+  Loader2,
   LucideProps,
   Moon,
+  MoreVertical,
+  Plus,
+  Settings,
   SunMedium,
+  Trash,
   Twitter,
-  type LucideIcon,
+  User,
+  type Icon as LucideIcon,
 } from 'lucide-react';
 
 export type Icon = LucideIcon;
 
 export const Icons = {
+  add: Plus,
+  arrowRight: ArrowRight,
+  billing: CreditCard,
+  calendar: Calendar,
   chevronLeft: ChevronLeft,
+  ellipsis: MoreVertical,
   laptop: Laptop,
-  sun: SunMedium,
   moon: Moon,
+  post: FileText,
+  settings: Settings,
+  spinner: Loader2,
+  sun: SunMedium,
+  trash: Trash,
   twitter: Twitter,
+  user: User,
+  warning: AlertTriangle,
   logo: (props: LucideProps) => (
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
       <path

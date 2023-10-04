@@ -6,6 +6,8 @@ import {
   primaryKey,
   integer,
 } from 'drizzle-orm/pg-core';
+import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
+import z from 'zod';
 
 export const users = pgTable('user', {
   id: text('id').notNull().primaryKey(),
@@ -14,6 +16,22 @@ export const users = pgTable('user', {
   emailVerified: timestamp('emailVerified', { mode: 'date' }),
   image: text('image'),
 });
+
+// Schema for CRUD - used to validate API requests
+export const updateUserSchema = createSelectSchema(users);
+
+export const updateUserNameParams = createSelectSchema(users, {
+  name: z.coerce.string(),
+}).omit({
+  id: true,
+  email: true,
+  emailVerified: true,
+  image: true,
+});
+
+// Types for users - used to type API request params and within Components
+export type User = z.infer<typeof updateUserSchema>;
+export type UpdateUserNameParams = z.infer<typeof updateUserNameParams>;
 
 export const accounts = pgTable(
   'account',
