@@ -12,24 +12,26 @@ import { buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/components/ui/use-toast';
-import { UserAuthParams, userAuthParams } from '@/lib/db/schema/auth';
+import { User, userAuthSchema } from '@/lib/db/schema/auth';
 import { cn } from '@/lib/utils';
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+type FormData = z.infer<typeof userAuthSchema>;
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<z.infer<typeof userAuthParams>>({
-    resolver: zodResolver(userAuthParams),
+  } = useForm<FormData>({
+    resolver: zodResolver(userAuthSchema),
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState<boolean>(false);
   const searchParams = useSearchParams();
 
-  async function onSubmit(data: UserAuthParams) {
+  async function onSubmit(data: FormData) {
     setIsLoading(true);
 
     const signInResult = await signIn('email', {
