@@ -12,26 +12,24 @@ import { buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/components/ui/use-toast';
+import { UserAuthParams, userAuthParams } from '@/lib/db/schema/auth';
 import { cn } from '@/lib/utils';
-import { userAuthSchema } from '@/lib/validations/auth';
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-type FormData = z.infer<typeof userAuthSchema>;
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
-    resolver: zodResolver(userAuthSchema),
+  } = useForm<z.infer<typeof userAuthParams>>({
+    resolver: zodResolver(userAuthParams),
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState<boolean>(false);
   const searchParams = useSearchParams();
 
-  async function onSubmit(data: FormData) {
+  async function onSubmit(data: UserAuthParams) {
     setIsLoading(true);
 
     const signInResult = await signIn('email', {
@@ -104,7 +102,9 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           className={cn(buttonVariants({ variant: 'outline' }))}
           onClick={() => {
             setIsGoogleLoading(true);
-            signIn('google', { callbackUrl: '/dashboard' });
+            signIn('google', {
+              callbackUrl: searchParams?.get('from') || '/dashboard',
+            });
           }}
           disabled={isLoading || isGoogleLoading}
         >
