@@ -54,7 +54,7 @@ export const updatePostParams = createSelectSchema(posts, {
 export const postIdSchema = updatePostSchema.pick({ id: true });
 
 // Types for posts - used to type API request params and within Components
-export type Post = z.infer<typeof updatePostSchema>;
+export type Post = z.infer<typeof insertPostSchema>;
 export type NewPost = z.infer<typeof insertPostSchema>;
 export type NewPostParams = z.infer<typeof insertPostParams>;
 export type UpdatePostParams = z.infer<typeof updatePostParams>;

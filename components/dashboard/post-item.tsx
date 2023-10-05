@@ -14,7 +14,7 @@ export function PostItem({ post }: PostItemProps) {
         <p className='font-semibold'>{post.title}</p>
         <div>
           <p className='text-sm text-muted-foreground'>
-            {formatDate(post.createdAt?.toDateString())}
+            {formatDate(post.createdAt!.toDateString())}
           </p>
         </div>
       </div>

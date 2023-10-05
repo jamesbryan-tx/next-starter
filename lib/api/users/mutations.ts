@@ -2,9 +2,9 @@ import { eq } from 'drizzle-orm';
 
 import { getUserAuth } from '@/lib/auth/utils';
 import { db } from '@/lib/db';
-import { UpdateUserNameParams, users } from '@/lib/db/schema/auth';
+import { type UserNameParams, users } from '@/lib/db/schema/auth';
 
-export const updateUserName = async (name: UpdateUserNameParams) => {
+export const updateUserName = async (name: UserNameParams) => {
   const { session } = await getUserAuth();
   try {
     const [u] = await db

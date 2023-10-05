@@ -20,13 +20,14 @@ import { useToast } from '@/components/ui/use-toast';
 import { Post, NewPostParams, insertPostParams } from '@/lib/db/schema/posts';
 import { trpc } from '@/lib/trpc/client';
 
-const PostForm = ({
-  post,
-  closeModal,
-}: {
+interface PostFormProps extends React.HTMLAttributes<HTMLFormElement> {
   post?: Post;
   closeModal: () => void;
-}) => {
+}
+
+type FormData = z.infer<typeof insertPostParams>;
+
+const PostForm = ({ post, closeModal }: PostFormProps) => {
   const { toast } = useToast();
 
   const editing = !!post?.id;
@@ -34,7 +35,7 @@ const PostForm = ({
   const router = useRouter();
   const utils = trpc.useContext();
 
-  const form = useForm<z.infer<typeof insertPostParams>>({
+  const form = useForm<FormData>({
     // latest Zod release has introduced a TS error with zodResolver
     // open issue: https://github.com/colinhacks/zod/issues/2663
     // errors locally but not in production
@@ -80,7 +81,7 @@ const PostForm = ({
 
   const handleSubmit = (values: NewPostParams) => {
     if (editing) {
-      updatePost({ ...values, id: post.id, updatedAt: new Date() });
+      updatePost({ ...values, id: post.id!, updatedAt: new Date() });
     } else {
       createPost(values);
     }

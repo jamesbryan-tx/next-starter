@@ -104,7 +104,7 @@ export function PostOperations({ post }: PostOperationsProps) {
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction
-              onClick={() => deletePost({ id: post.id })}
+              onClick={() => deletePost({ id: post.id! })}
               className='bg-red-600 focus:ring-red-600'
             >
               {isDeleting ? (

@@ -18,8 +18,11 @@ export const users = pgTable('user', {
 });
 
 // Schema for CRUD - used to validate API requests
-export const userAuthSchema = createInsertSchema(users);
-export const userAuthParams = createSelectSchema(users, {
+export const insertUserSchema = createInsertSchema(users).extend({
+  email: z.string().email(),
+});
+
+export const userAuthSchema = createSelectSchema(users, {
   email: z.coerce.string().email(),
 }).omit({
   id: true,
@@ -27,8 +30,8 @@ export const userAuthParams = createSelectSchema(users, {
   emailVerified: true,
   image: true,
 });
-export const updateUserSchema = createSelectSchema(users);
-export const updateUserNameParams = createSelectSchema(users, {
+
+export const userNameSchema = createSelectSchema(users, {
   name: z.coerce.string().min(1).max(256),
 }).omit({
   id: true,
@@ -38,9 +41,9 @@ export const updateUserNameParams = createSelectSchema(users, {
 });
 
 // Types for users - used to type API request params and within Components
-export type User = z.infer<typeof updateUserSchema>;
-export type UpdateUserNameParams = z.infer<typeof updateUserNameParams>;
-export type UserAuthParams = z.infer<typeof userAuthParams>;
+export type User = z.infer<typeof insertUserSchema>;
+export type UserAuth = z.infer<typeof userAuthSchema>;
+export type UserNameParams = z.infer<typeof userNameSchema>;
 
 export const accounts = pgTable(
   'account',

@@ -19,9 +19,9 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/components/ui/use-toast';
 import {
-  UpdateUserNameParams,
-  User,
-  updateUserNameParams,
+  type User,
+  type UserNameParams,
+  userNameSchema,
 } from '@/lib/db/schema/auth';
 import { trpc } from '@/lib/trpc/client';
 import { cn } from '@/lib/utils';
@@ -29,6 +29,8 @@ import { cn } from '@/lib/utils';
 interface UserNameFormProps extends React.HTMLAttributes<HTMLFormElement> {
   user: Pick<User, 'id' | 'name'>;
 }
+
+type FormData = z.infer<typeof userNameSchema>;
 
 export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
   const router = useRouter();
@@ -38,8 +40,8 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<z.infer<typeof updateUserNameParams>>({
-    resolver: zodResolver(updateUserNameParams),
+  } = useForm<FormData>({
+    resolver: zodResolver(userNameSchema),
     defaultValues: {
       name: user?.name || '',
     },
@@ -60,7 +62,7 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
       onError: (error) => onError(error),
     });
 
-  const onSubmit = (values: UpdateUserNameParams) => {
+  const onSubmit = (values: UserNameParams) => {
     updateUserName(values);
   };
 
