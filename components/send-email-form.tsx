@@ -18,21 +18,15 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/components/ui/use-toast';
-import {
-  type User,
-  type UserNameParams,
-  userNameSchema,
-} from '@/lib/db/schema/auth';
+import { type SendEmailParams, sendEmailSchema } from '@/lib/email/utils';
 import { trpc } from '@/lib/trpc/client';
 import { cn } from '@/lib/utils';
 
-interface UserNameFormProps extends React.HTMLAttributes<HTMLFormElement> {
-  user: Pick<User, 'id' | 'name'>;
-}
+interface EmailFormProps extends React.HTMLAttributes<HTMLFormElement> {}
 
-type FormData = z.infer<typeof userNameSchema>;
+type FormData = z.infer<typeof sendEmailSchema>;
 
-export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
+export function EmailForm({ className, ...props }: EmailFormProps) {
   const router = useRouter();
   const utils = trpc.useContext();
 
@@ -41,27 +35,24 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
     register,
     formState: { errors },
   } = useForm<FormData>({
-    resolver: zodResolver(userNameSchema),
-    defaultValues: {
-      name: user?.name || '',
-    },
+    resolver: zodResolver(sendEmailSchema),
   });
 
-  const { mutate: updateUserName, isLoading: isUpdating } =
-    trpc.users.updateUserName.useMutation({
+  const { mutate: sendEmail, isLoading: isSending } =
+    trpc.email.sendEmail.useMutation({
       onSuccess: () => onSuccess(),
       onError: (error) => onError(error),
     });
 
-  const onSubmit = (values: UserNameParams) => {
-    updateUserName(values);
+  const onSubmit = (values: SendEmailParams) => {
+    sendEmail(values);
   };
 
   const onSuccess = () => {
     router.refresh();
     toast({
       title: 'Success!',
-      description: 'Your name has been updated.',
+      description: 'Your email has been sent.',
       variant: 'default',
     });
   };
@@ -83,17 +74,14 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
     >
       <Card>
         <CardHeader>
-          <CardTitle>Your Name</CardTitle>
+          <CardTitle>Recipient Info</CardTitle>
           <CardDescription>
-            Please enter your full name or a display name you are comfortable
-            with.
+            Please provide the name and email address of the email recipient.
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className='grid gap-5'>
           <div className='grid gap-1'>
-            <Label className='sr-only' htmlFor='name'>
-              Name
-            </Label>
+            <Label htmlFor='name'>Name</Label>
             <Input
               id='name'
               className='w-[400px]'
@@ -104,17 +92,45 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
               <p className='px-1 text-xs text-red-600'>{errors.name.message}</p>
             )}
           </div>
+          <div className='grid gap-1'>
+            <Label htmlFor='email'>Email</Label>
+            <Input
+              id='email'
+              className='w-[400px]'
+              size={32}
+              {...register('email')}
+            />
+            {errors?.email && (
+              <p className='px-1 text-xs text-red-600'>
+                {errors.email.message}
+              </p>
+            )}
+          </div>
+          <div className='grid gap-1'>
+            <Label htmlFor='email'>Subject</Label>
+            <Input
+              id='subject'
+              className='w-[400px]'
+              size={32}
+              {...register('subject')}
+            />
+            {errors?.subject && (
+              <p className='px-1 text-xs text-red-600'>
+                {errors.subject.message}
+              </p>
+            )}
+          </div>
         </CardContent>
         <CardFooter>
           <button
             type='submit'
             className={cn(buttonVariants(), className)}
-            disabled={isUpdating}
+            disabled={isSending}
           >
-            {isUpdating && (
+            {isSending && (
               <Icons.spinner className='mr-2 h-4 w-4 animate-spin' />
             )}
-            <span>Save</span>
+            <span>Send</span>
           </button>
         </CardFooter>
       </Card>

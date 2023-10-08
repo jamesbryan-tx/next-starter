@@ -49,25 +49,6 @@ const PostForm = ({ post, closeModal }: PostFormProps) => {
     },
   });
 
-  const onSuccess = (action: 'create' | 'update') => {
-    utils.posts.getPosts.invalidate();
-    router.refresh();
-    closeModal();
-    toast({
-      title: 'Success!',
-      description: `Post ${action}d`,
-      variant: 'default',
-    });
-  };
-
-  const onError = (error: any) => {
-    toast({
-      title: 'Error',
-      description: error.message,
-      variant: 'destructive',
-    });
-  };
-
   const { mutate: createPost, isLoading: isCreating } =
     trpc.posts.createPost.useMutation({
       onSuccess: () => onSuccess('create'),
@@ -85,6 +66,25 @@ const PostForm = ({ post, closeModal }: PostFormProps) => {
     } else {
       createPost(values);
     }
+  };
+
+  const onSuccess = (action: 'create' | 'update') => {
+    utils.posts.getPosts.invalidate();
+    router.refresh();
+    closeModal();
+    toast({
+      title: 'Success!',
+      description: `Post ${action}d`,
+      variant: 'default',
+    });
+  };
+
+  const onError = (error: any) => {
+    toast({
+      title: 'Error',
+      description: error.message,
+      variant: 'destructive',
+    });
   };
 
   return (

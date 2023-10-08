@@ -14,6 +14,10 @@ export function formatDate(input: string | number): string {
   });
 }
 
+export function getCurrentYear() {
+  return new Date().getFullYear();
+}
+
 export function absoluteUrl(path: string) {
   return process.env.NODE_ENV === 'development'
     ? `http://localhost:3000/${path}`

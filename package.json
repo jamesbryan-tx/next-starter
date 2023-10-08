@@ -17,7 +17,8 @@
     "db:drop": "drizzle-kit drop",
     "db:pull": "drizzle-kit introspect:pg",
     "db:studio": "drizzle-kit studio",
-    "db:check": "drizzle-kit check:pg"
+    "db:check": "drizzle-kit check:pg",
+    "email": "email dev --port 1226 --dir ./components/email"
   },
   "dependencies": {
     "@auth/core": "^0.15.2",
@@ -32,6 +33,7 @@
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.4",
+    "@react-email/components": "^0.0.7",
     "@t3-oss/env-nextjs": "^0.6.1",
     "@tanstack/react-query": "^4.35.3",
     "@trpc/client": "^10.38.4",
@@ -48,10 +50,12 @@
     "next": "^13.5.4",
     "next-auth": "4.23.1",
     "next-themes": "^0.2.1",
+    "nodemailer": "^6.9.5",
     "postgres": "^3.3.5",
     "react": "^18.2.0",
     "react-day-picker": "^8.8.2",
     "react-dom": "^18.2.0",
+    "react-email": "1.9.5",
     "react-hook-form": "^7.46.2",
     "react-wrap-balancer": "^1.1.0",
     "resend": "^1.1.0",
@@ -76,6 +80,7 @@
     "postcss": "^8.4.30",
     "prettier-plugin-tailwindcss": "^0.5.4",
     "tsx": "^3.13.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "yarn": "^1.22.19"
   }
 }

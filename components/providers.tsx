@@ -4,7 +4,7 @@ import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from 'next-themes';
 import { Provider as BalancerProvider } from 'react-wrap-balancer';
 
-import TrpcProvider from '@/lib/trpc/Provider';
+import TrpcProvider from '@/lib/trpc/provider';
 
 interface ProviderProps {
   children: React.ReactNode;
