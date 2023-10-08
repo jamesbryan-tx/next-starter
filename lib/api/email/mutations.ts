@@ -1,3 +1,5 @@
+import { CreateEmailResponse } from 'resend/build/src/emails/interfaces';
+
 import ActivateEmail from '@/components/email/activate';
 import LoginEmail from '@/components/email/login';
 import SendEmail from '@/components/email/send';
@@ -23,6 +25,8 @@ export const sendEmail = async (input: SendEmailParams) => {
       userName: name,
     }),
   });
+
+  checkErrors(data);
 };
 
 export const activateEmail = async (input: ActivateEmailParams) => {
@@ -35,6 +39,8 @@ export const activateEmail = async (input: ActivateEmailParams) => {
       actionUrl: actionUrl,
     }),
   });
+
+  checkErrors(data);
 };
 
 export const loginEmail = async (input: LoginEmailParams) => {
@@ -48,4 +54,12 @@ export const loginEmail = async (input: LoginEmailParams) => {
       actionUrl: actionUrl,
     }),
   });
+
+  checkErrors(data);
+};
+
+const checkErrors = (data: CreateEmailResponse) => {
+  if (data && 'statusCode' in data && 'message' in data) {
+    throw new Error(`${data.statusCode}: ${data.message}`);
+  }
 };

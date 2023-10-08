@@ -61,10 +61,6 @@ export const authOptions: NextAuthOptions = {
               actionUrl: url,
             });
           }
-
-          const onError = (error: any) => {
-            throw new Error(error);
-          };
         }
       },
     }),
