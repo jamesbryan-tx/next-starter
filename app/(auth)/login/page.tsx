@@ -1,9 +1,11 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
+import { AuthFormSkeleton } from '@/components/auth/auth-form-skeleton';
+import { UserAuthForm } from '@/components/auth/user-auth-form';
 import { Icons } from '@/components/icons';
 import { buttonVariants } from '@/components/ui/button';
-import { UserAuthForm } from '@/components/user-auth-form';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
@@ -36,7 +38,9 @@ export default function LoginPage() {
             Enter your email to sign in to your account
           </p>
         </div>
-        <UserAuthForm />
+        <Suspense fallback={<AuthFormSkeleton />}>
+          <UserAuthForm />
+        </Suspense>
         <p className='px-8 text-center text-sm text-muted-foreground'>
           <Link
             href='/register'
