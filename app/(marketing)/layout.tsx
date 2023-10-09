@@ -10,7 +10,7 @@ export default async function MarketingLayout({
   children,
 }: MarketingLayoutProps) {
   return (
-    <div className='relative flex min-h-screen flex-col'>
+    <div className='grid min-h-screen grid-rows-[auto,1fr,auto]'>
       <SiteHeader items={marketingConfig.mainNav} />
       <div className='flex-1'>{children}</div>
       <SiteFooter />
