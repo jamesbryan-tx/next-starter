@@ -18,11 +18,15 @@ export default function IndexPage() {
             Follow along on Twitter
           </Link>
           <h1 className='font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl'>
-            An example app built using Next.js 13 server components.
+            <Balancer>
+              An example app built using Next.js 13 server components.
+            </Balancer>
           </h1>
           <p className='max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8'>
-            I&apos;m building a web app with Next.js 13 and open sourcing
-            everything. Follow along as we figure this out together.
+            <Balancer>
+              I&apos;m building a web app with Next.js 13 and open sourcing
+              everything. Follow along as we figure this out together.
+            </Balancer>
           </p>
           <div className='space-x-4'>
             <Link href='/login' className={cn(buttonVariants({ size: 'lg' }))}>
@@ -48,9 +52,11 @@ export default function IndexPage() {
             Features
           </h2>
           <p className='max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7'>
-            This project is an experiment to see how a modern app, with features
-            like auth, subscriptions, API routes, and static pages would work in
-            Next.js 13 app dir.
+            <Balancer>
+              This project is an experiment to see how a modern app, with
+              features like auth, subscriptions, API routes, and static pages
+              would work in Next.js 13 app dir.
+            </Balancer>
           </p>
         </div>
         <div className='mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3'>
