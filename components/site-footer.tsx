@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { ThemeToggle } from '@/components/theme-toggle';
+import { Separator } from '@/components/ui/separator';
 import { siteConfig } from '@/config/site';
 import { cn, getCurrentYear } from '@/lib/utils';
 
@@ -12,10 +13,17 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
           <p>
             &copy; {getCurrentYear()} {siteConfig.name}. All rights reserved.
           </p>
+          <Separator
+            orientation='vertical'
+            className='hidden h-[20px] md:flex'
+          />
           <Link href='#' className='font-medium underline underline-offset-4'>
             Privacy Policy
           </Link>
-          <p className='hidden md:flex'>{'  |  '}</p>
+          <Separator
+            orientation='vertical'
+            className='hidden h-[20px] md:flex'
+          />
           <Link href='#' className='font-medium underline underline-offset-4'>
             Terms and Conditions
           </Link>
