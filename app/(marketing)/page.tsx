@@ -180,8 +180,7 @@ export default function IndexPage() {
               <div className='space-y-2'>
                 <h3 className='font-bold'>Components</h3>
                 <p className='text-sm text-muted-foreground'>
-                  UI components built with shadcn/ui and styled with Tailwind
-                  CSS.
+                  Shadcn UI components and Tailwind CSS for styling.
                 </p>
               </div>
             </div>
@@ -222,7 +221,7 @@ export default function IndexPage() {
               <div className='space-y-2'>
                 <h3 className='font-bold'>Email</h3>
                 <p className='text-sm text-muted-foreground'>
-                  Build emails right in your codebase with Resend and
+                  Send email with Resend and build email templates with
                   React.Email.
                 </p>
               </div>
