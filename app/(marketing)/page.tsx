@@ -15,21 +15,22 @@ export default function IndexPage() {
             className='rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium'
             target='_blank'
           >
-            Follow along on Twitter
+            Because we need another Next starter
           </Link>
           <h1 className='font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl'>
-            <Balancer>
-              An example app built using Next.js 13 server components.
-            </Balancer>
+            <Balancer>A fork of Taxonomy using TRPC and React Query!</Balancer>
           </h1>
           <p className='max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8'>
             <Balancer>
-              I&apos;m building a web app with Next.js 13 and open sourcing
-              everything. Follow along as we figure this out together.
+              Along with Drizzle, Next Auth, Resend with React.Email Components,
+              T3 Env, and more.
             </Balancer>
           </p>
           <div className='space-x-4'>
-            <Link href='/login' className={cn(buttonVariants({ size: 'lg' }))}>
+            <Link
+              href='/register'
+              className={cn(buttonVariants({ size: 'lg' }))}
+            >
               Get Started
             </Link>
             <Link
@@ -53,9 +54,22 @@ export default function IndexPage() {
           </h2>
           <p className='max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7'>
             <Balancer>
-              This project is an experiment to see how a modern app, with
-              features like auth, subscriptions, API routes, and static pages
-              would work in Next.js 13 app dir.
+              This project is a fork of the{' '}
+              <Link
+                href={siteConfig.links.taxonomy}
+                className='underline underline-offset-4'
+              >
+                Taxonomy
+              </Link>{' '}
+              repo by shadcn. It is intended to be a bare bones starter for your
+              next...Next project. Special thanks to{' '}
+              <Link
+                href={siteConfig.links.shadcn}
+                className='underline underline-offset-4'
+              >
+                shadcn
+              </Link>{' '}
+              for inspiring this template.
             </Balancer>
           </p>
         </div>
@@ -68,7 +82,7 @@ export default function IndexPage() {
               <div className='space-y-2'>
                 <h3 className='font-bold'>Next.js 13</h3>
                 <p className='text-sm text-muted-foreground'>
-                  App dir, Routing, Layouts, Loading UI and API routes.
+                  App Directory, Routing, Layouts, Loading UI, and API routes.
                 </p>
               </div>
             </div>
@@ -80,7 +94,7 @@ export default function IndexPage() {
               </svg>
               <div className='space-y-2'>
                 <h3 className='font-bold'>React 18</h3>
-                <p className='text-sm'>
+                <p className='text-sm text-muted-foreground'>
                   Server and Client Components. Use hook.
                 </p>
               </div>
@@ -88,26 +102,85 @@ export default function IndexPage() {
           </div>
           <div className='relative overflow-hidden rounded-lg border bg-background p-2'>
             <div className='flex h-[180px] flex-col justify-between rounded-md p-6'>
-              <svg viewBox='0 0 24 24' className='h-12 w-12 fill-current'>
-                <path d='M0 12C0 5.373 5.373 0 12 0c4.873 0 9.067 2.904 10.947 7.077l-15.87 15.87a11.981 11.981 0 0 1-1.935-1.099L14.99 12H12l-8.485 8.485A11.962 11.962 0 0 1 0 12Zm12.004 12L24 12.004C23.998 18.628 18.628 23.998 12.004 24Z' />
+              <svg
+                className='-mx-1 h-12 w-12 fill-current'
+                viewBox='0 0 160 160'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <rect
+                  width='9.63139'
+                  height='40.8516'
+                  rx='4.8157'
+                  transform='matrix(0.873028 0.48767 -0.497212 0.867629 43.4805 67.3037)'
+                  fill='currentColor'
+                ></rect>
+                <rect
+                  width='9.63139'
+                  height='40.8516'
+                  rx='4.8157'
+                  transform='matrix(0.873028 0.48767 -0.497212 0.867629 76.9395 46.5342)'
+                  fill='currentColor'
+                ></rect>
+                <rect
+                  width='9.63139'
+                  height='40.8516'
+                  rx='4.8157'
+                  transform='matrix(0.873028 0.48767 -0.497212 0.867629 128.424 46.5352)'
+                  fill='currentColor'
+                ></rect>
+                <rect
+                  width='9.63139'
+                  height='40.8516'
+                  rx='4.8157'
+                  transform='matrix(0.873028 0.48767 -0.497212 0.867629 94.957 67.3037)'
+                  fill='currentColor'
+                ></rect>
               </svg>
               <div className='space-y-2'>
                 <h3 className='font-bold'>Database</h3>
                 <p className='text-sm text-muted-foreground'>
-                  ORM using Prisma and deployed on PlanetScale.
+                  Drizzle ORM and Postgres. Connect to any Postgres connection
+                  string.
                 </p>
               </div>
             </div>
           </div>
           <div className='relative overflow-hidden rounded-lg border bg-background p-2'>
             <div className='flex h-[180px] flex-col justify-between rounded-md p-6'>
-              <svg viewBox='0 0 24 24' className='h-12 w-12 fill-current'>
-                <path d='M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z' />
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 256 256'
+                className='-mx-1 h-12 w-12'
+              >
+                <rect width='256' height='256' fill='none'></rect>
+                <line
+                  x1='208'
+                  y1='128'
+                  x2='128'
+                  y2='208'
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='16'
+                ></line>
+                <line
+                  x1='192'
+                  y1='40'
+                  x2='40'
+                  y2='192'
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='16'
+                ></line>
               </svg>
               <div className='space-y-2'>
                 <h3 className='font-bold'>Components</h3>
                 <p className='text-sm text-muted-foreground'>
-                  UI components built using Radix UI and styled with Tailwind
+                  UI components built with shadcn/ui and styled with Tailwind
                   CSS.
                 </p>
               </div>
@@ -117,10 +190,9 @@ export default function IndexPage() {
             <div className='flex h-[180px] flex-col justify-between rounded-md p-6'>
               <svg
                 viewBox='0 0 24 24'
-                fill='none'
                 stroke='currentColor'
                 strokeWidth='1'
-                className='h-12 w-12 fill-current'
+                className='-mx-1 h-12 w-12 fill-current'
               >
                 <path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'></path>
               </svg>
@@ -134,23 +206,28 @@ export default function IndexPage() {
           </div>
           <div className='relative overflow-hidden rounded-lg border bg-background p-2'>
             <div className='flex h-[180px] flex-col justify-between rounded-md p-6'>
-              <svg viewBox='0 0 24 24' className='h-12 w-12 fill-current'>
-                <path d='M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z' />
+              <svg
+                className='-mx-2 h-14 w-14 fill-current'
+                viewBox='0 0 32 32'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  fill-rule='evenodd'
+                  clip-rule='evenodd'
+                  d='M24.4558 24.4853C25.2339 23.7073 25.3805 22.6549 25.2947 21.746C25.2078 20.8254 24.8697 19.8258 24.3896 18.8287C23.957 17.9302 23.3802 16.9745 22.6821 16C23.3802 15.0255 23.957 14.0698 24.3896 13.1713C24.8697 12.1742 25.2078 11.1746 25.2947 10.254C25.3805 9.34508 25.2339 8.29273 24.4558 7.51472C23.6778 6.73671 22.6255 6.59004 21.7165 6.67584C20.796 6.76273 19.7964 7.10086 18.7993 7.58094C17.9007 8.01357 16.945 8.59036 15.9706 9.28842C14.9961 8.59036 14.0404 8.01357 13.1418 7.58094C12.1447 7.10086 11.1451 6.76273 10.2246 6.67584C9.31564 6.59004 8.26329 6.73671 7.48528 7.51472C6.70727 8.29273 6.5606 9.34508 6.6464 10.254C6.7333 11.1746 7.07142 12.1742 7.5515 13.1713C7.98414 14.0698 8.56092 15.0255 9.25898 16C8.56092 16.9745 7.98414 17.9302 7.5515 18.8287C7.07142 19.8258 6.7333 20.8254 6.6464 21.746C6.5606 22.6549 6.70727 23.7073 7.48528 24.4853C8.26329 25.2633 9.31564 25.41 10.2246 25.3242C11.1451 25.2373 12.1447 24.8991 13.1418 24.4191C14.0404 23.9864 14.9961 23.4096 15.9706 22.7116C16.945 23.4096 17.9007 23.9864 18.7993 24.4191C19.7964 24.8991 20.796 25.2373 21.7165 25.3242C22.6255 25.41 23.6778 25.2633 24.4558 24.4853ZM15.9706 20.948C16.8399 20.2684 17.724 19.4874 18.591 18.6205C19.458 17.7535 20.239 16.8693 20.9186 16C20.239 15.1307 19.458 14.2465 18.591 13.3795C17.724 12.5126 16.8399 11.7316 15.9706 11.052C15.1012 11.7316 14.2171 12.5126 13.3501 13.3795C12.4831 14.2465 11.7021 15.1307 11.0225 16C11.7021 16.8693 12.4831 17.7535 13.3501 18.6205C14.2171 19.4874 15.1012 20.2684 15.9706 20.948ZM17.1498 21.8145C17.968 21.1558 18.7885 20.4195 19.5893 19.6187C20.39 18.818 21.1264 17.9974 21.7851 17.1792C23.7187 19.9919 24.4627 22.4819 23.4576 23.487C22.4524 24.4922 19.9625 23.7482 17.1498 21.8145ZM10.156 17.1792C10.8148 17.9974 11.5511 18.818 12.3518 19.6187C13.1526 20.4195 13.9731 21.1558 14.7914 21.8145C11.9786 23.7482 9.48871 24.4922 8.48355 23.487C7.47839 22.4819 8.22238 19.9919 10.156 17.1792ZM10.156 14.8208C10.8148 14.0026 11.5511 13.182 12.3518 12.3813C13.1526 11.5805 13.9731 10.8442 14.7914 10.1855C11.9786 8.25182 9.48871 7.50783 8.48355 8.51299C7.47839 9.51815 8.22238 12.0081 10.156 14.8208ZM17.1498 10.1855C17.968 10.8442 18.7885 11.5805 19.5893 12.3813C20.39 13.182 21.1264 14.0026 21.7851 14.8208C23.7187 12.0081 24.4627 9.51815 23.4576 8.51299C22.4524 7.50783 19.9625 8.25182 17.1498 10.1855Z'
+                  fill='currentColor'
+                  stroke-width='0.5'
+                ></path>
               </svg>
               <div className='space-y-2'>
-                <h3 className='font-bold'>Subscriptions</h3>
+                <h3 className='font-bold'>Email</h3>
                 <p className='text-sm text-muted-foreground'>
-                  Free and paid subscriptions using Stripe.
+                  Build emails right in your codebase with Resend and
+                  React.Email.
                 </p>
               </div>
             </div>
           </div>
-        </div>
-        <div className='mx-auto text-center md:max-w-[58rem]'>
-          <p className='leading-normal text-muted-foreground sm:text-lg sm:leading-7'>
-            Taxonomy also includes a blog and a full-featured documentation site
-            built using Contentlayer and MDX.
-          </p>
         </div>
       </section>
       <section id='open-source' className='container py-8 md:py-12 lg:py-24'>
@@ -160,8 +237,8 @@ export default function IndexPage() {
           </h2>
           <p className='max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7'>
             <Balancer>
-              Taxonomy is open source and powered by open source software.{' '}
-              <br /> The code is available on{' '}
+              Taxonomy and this Next starter are open source and powered by open
+              source software. The code is available on{' '}
               <Link
                 href={siteConfig.links.github}
                 target='_blank'
