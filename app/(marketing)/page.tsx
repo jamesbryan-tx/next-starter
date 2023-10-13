@@ -26,7 +26,7 @@ export default function IndexPage() {
               T3 Env, and more.
             </Balancer>
           </p>
-          <div className='space-x-4'>
+          <div className='flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0'>
             <Link
               href='/register'
               className={cn(buttonVariants({ size: 'lg' }))}
