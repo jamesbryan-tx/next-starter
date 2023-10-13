@@ -25,11 +25,11 @@ This starter chiefly draws from the [Taxonomy](https://github.com/shadcn-ui/taxo
 
 ## Getting Started
 
-First, head on over to [Resend](https://resend.com/) and sign up for an API key and make sure you validate your domain (required to send email). Save your API key and verified domain to `.env.local`.
+First, head on over to [Resend](https://resend.com/) and sign up for an API key and make sure you validate your domain (required to send email). Save your API key and verified domain to `.env`.
 
-Next, set up your project in Google Cloud Console and establish OAuth 2.0 Client IDs. Refer to [Next-Auth](https://next-auth.js.org/providers/google) for a set up guide. Save your Google Client ID and Client Secret to `.env.local`.
+Next, set up your project in Google Cloud Console and establish OAuth 2.0 Client IDs. Refer to [Next-Auth](https://next-auth.js.org/providers/google) for a set up guide. Save your Google Client ID and Client Secret to `.env`.
 
-Generate a Next-Auth Secret by typing `openssl rand -base64 32` into a terminal. Copy the resulting secret into `.env.local`. Also set your `NEXTAUTH_URL` environment variable as `http://localhost:3000`.
+Generate a Next-Auth Secret by typing `openssl rand -base64 32` into a terminal. Copy the resulting secret into `.env`. Also set your `NEXTAUTH_URL` environment variable as `http://localhost:3000`.
 
 For the `DATABASE_URL` environment variable, use a local connection string if developing on a local PostgreSQL database, or use a connection string provided by your serverless database provider of choice.
 
